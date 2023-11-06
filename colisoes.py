@@ -18,17 +18,24 @@ def titulo(texto, traco="-"):
 
 def total_acidentes():
     titulo("Número Total de Acidentes")
-    
+
     total = len(colisoes)
     print(f"O número total de acidentes é: {total}")
     return total
 
 
-
-
 def acidentes_c_mortes():
-    pass
+    titulo("Número de Acidentes com Mortes")
 
+    acidentes_mortes = 0
+
+    for acidente in colisoes:
+        num_mortes = acidente.get('NUMBER OF PERSONS KILLED', '0')  # Obtém o número de mortes, se não existir, considera como '0'
+        if int(num_mortes) > 0:
+            acidentes_mortes += 1
+
+    print(f"O número de acidentes com mortes é: {acidentes_mortes}")
+    return acidentes_mortes
 
 def acidentes_s_mortes():
     pass
