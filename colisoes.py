@@ -23,24 +23,6 @@ def total_acidentes():
     print(f"O número total de acidentes é: {total}")
     return total
 
-
-def acidentes_c_mortes():
-    titulo("Número de Acidentes com Mortes")
-
-    acidentes_mortes = 0
-
-    for acidente in colisoes:
-        num_mortes = acidente.get('NUMBER OF PERSONS KILLED', '0')  # Obtém o número de mortes, se não existir, considera como '0'
-        if int(num_mortes) > 0:
-            acidentes_mortes += 1
-
-    print(f"O número de acidentes com mortes é: {acidentes_mortes}")
-    return acidentes_mortes
-
-def acidentes_s_mortes():
-    pass
-
-
 def acidentes_bairros():
     pass
 
@@ -58,25 +40,19 @@ carrega_dados()
 
 while True:
     titulo("Colisões de Veículos em Nova Iorque", "=")
-    print("1. Nº Total de Acidentes")
-    print("2. Nº de Acidentes com Mortes")
-    print("3. Nº de Acidentes sem Mortes")
-    print("4. Acidentes por Bairro")
-    print("5. Gráfico Acidentes por Ano")
-    print("6. Gráfico de Acidentes com Mortes")
-    print("7. Finalizar")
+    print("1. Dados Gerais sobre as Colisões")
+    print("2. Acidentes Agrupados por Bairro")
+    print("3. Gráfico de Acidentes por Bairro e Ano")
+    print("4. Gráfico de Acidentes com Mortes por Bairro")
+    print("5. Finalizar")
     opcao = int(input("Opção: "))
     if opcao == 1:
        total_acidentes()
     elif opcao == 2:
-        acidentes_c_mortes()
+        acidentes_bairros() 
     elif opcao == 3:
-        acidentes_s_mortes()
-    elif opcao == 4:
-        acidentes_bairros()
-    elif opcao == 5:
         grafico_acidentes_ano()
-    elif opcao == 6:
+    elif opcao == 4:
         grafico_acidentes_c_mortes()
     else:
         break
